@@ -12,7 +12,7 @@ const CreateWallet = () => {
   const createWallet = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/createWallet", {
+      const response = await fetch(`${process.env.BASE_URL}/createWallet`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

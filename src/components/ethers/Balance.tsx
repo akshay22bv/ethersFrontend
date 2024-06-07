@@ -15,7 +15,7 @@ const Balance = () => {
     const { address } = JSON.parse(storedWallet);
 
     if (address) {
-      fetch(`http://localhost:5000/balance/${address}`)
+      fetch(`${process.env.BASE_URL}/balance/${address}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch balance");

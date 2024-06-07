@@ -8,7 +8,7 @@ const WithdrawForm = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      const response = await fetch("http://localhost:5000/withdraw", {
+      const response = await fetch(`${process.env.BASE_URL}/withdraw`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
