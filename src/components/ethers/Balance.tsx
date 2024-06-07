@@ -12,10 +12,10 @@ const Balance = () => {
     setRefreshing(true);
 
     const storedWallet = localStorage.getItem("wallet") ?? "";
-    const { address } = JSON.parse(storedWallet);
+    const { address } = storedWallet ? JSON.parse(storedWallet) : "";
 
     if (address) {
-      fetch(`${process.env.BASE_URL}/balance/${address}`)
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/balance/${address}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch balance");

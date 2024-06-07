@@ -12,12 +12,15 @@ const CreateWallet = () => {
   const createWallet = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${process.env.BASE_URL}/createWallet`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/createWallet`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to create wallet");
@@ -45,7 +48,7 @@ const CreateWallet = () => {
   useEffect(() => {
     const storedWallet = localStorage.getItem("wallet");
     if (storedWallet) {
-      const parsedWallet = JSON.parse(storedWallet);
+      const parsedWallet = JSON.parse(storedWallet) ?? {};
       setWallet(parsedWallet);
       qr.toDataURL(parsedWallet.address).then(setQrCode);
     }
