@@ -4,3 +4,8 @@ interface Wallet {
   address: string;
   qrCode: string;
 }
+
+interface Mnemonic {
+  id: number;
+  mnemonic: string;
+}

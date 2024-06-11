@@ -10,9 +10,10 @@ import {
 import WithdrawForm from "@/components/ethers/Withdraw";
 import CreateWallet from "@/components/ethers/CreateWallet";
 import Balance from "@/components/ethers/Balance";
+import Address from "@/components/btc/Address";
 
 const Dashboard = () => {
-  const [currency, setCurrency] = useState("");
+  const [currency, setCurrency] = useState("btc");
 
   const handleCurrencyChange = (event: any) => {
     setCurrency(event.target.value);
@@ -82,6 +83,8 @@ const Dashboard = () => {
             </Grid>
           </Grid>
         )}
+
+        {currency === "btc" && <Address />}
       </Box>
     </Container>
   );
