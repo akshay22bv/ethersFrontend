@@ -20,7 +20,7 @@ type propType = {
   onSubmit: (values: FormData) => void;
 };
 
-const Withdraw = (props: propType) => {
+const ETHWithdraw = (props: propType) => {
   const {
     handleSubmit,
     control,
@@ -93,4 +93,4 @@ const Withdraw = (props: propType) => {
   );
 };
 
-export default Withdraw;
+export default ETHWithdraw;

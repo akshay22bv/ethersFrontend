@@ -10,7 +10,9 @@ import {
 import WithdrawForm from "@/components/ethers/Withdraw";
 import CreateWallet from "@/components/ethers/CreateWallet";
 import Balance from "@/components/ethers/Balance";
-import Address from "@/components/btc/Address";
+import Address from "@/components/btc/BTCPage";
+import BTCPage from "@/components/btc/BTCPage";
+import ETHPage from "@/components/eth/ETHPage";
 
 const Dashboard = () => {
   const [currency, setCurrency] = useState("btc");
@@ -40,51 +42,9 @@ const Dashboard = () => {
             <MenuItem value="btc">BTC</MenuItem>
           </Select>
         </Box>
-        {currency === "eth" && (
-          <Grid container spacing={2}>
-            <Grid
-              item
-              xs={12}
-              md={4}
-              sx={{ border: 1, borderColor: "grey.300", padding: 2 }}
-            >
-              <Box>
-                <Typography variant="h6" gutterBottom>
-                  Create Wallet
-                </Typography>
-                <CreateWallet />
-              </Box>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={4}
-              sx={{ border: 1, borderColor: "grey.300", padding: 2 }}
-            >
-              <Box>
-                <Typography variant="h6" gutterBottom>
-                  Get Balance
-                </Typography>
-                <Balance />
-              </Box>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={4}
-              sx={{ border: 1, borderColor: "grey.300", padding: 2 }}
-            >
-              <Box>
-                <Typography variant="h6" gutterBottom>
-                  Withdraw
-                </Typography>
-                <WithdrawForm />
-              </Box>
-            </Grid>
-          </Grid>
-        )}
+        {currency === "eth" && <ETHPage />}
 
-        {currency === "btc" && <Address />}
+        {currency === "btc" && <BTCPage />}
       </Box>
     </Container>
   );
